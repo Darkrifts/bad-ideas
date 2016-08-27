@@ -1,0 +1,8 @@
+// FOR ALL INTENTS AND PURPOSES, ASSUME THIS IS IN A CLASS, NOT JUST AN INVALID PLACEMENT OF A METHOD
+
+// Sector V 1
+
+int Compress(string toComp)
+{
+  return 0;
+}
