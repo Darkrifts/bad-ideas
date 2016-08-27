@@ -3,15 +3,8 @@
 // Sector V 1
 
 // Description Entropic string compression and decompression
-// Extensions
-static void exchange(this string a, string b, string c)
-    {
-      a = a.Replace(b, c);
-    }
-// End Extensions
-    
 static int getnum(char c)
-    {
+{
       switch(c)
       {
         case '0': return 0;
@@ -26,9 +19,9 @@ static int getnum(char c)
         case '9': return 0;
         default: return 0;
       }
-    }
-    static string Compress(string toCompress)
-    {
+}
+static string Compress(string toCompress)
+{
       Random r = new Random();
       Stack<int> stack = new Stack<int>();
       Stack<char> stack2 = new Stack<char>();
@@ -39,8 +32,10 @@ static int getnum(char c)
         if(toCompress[i] == c) count++;
         else {stack.Push(count); count = 1; stack2.Push(c); c = toCompress[i];}
       }
+      stack.Push(count);
+      stack2.Push(c);
       string RET = "";
-      for(int i = 0; i < stack.Count; i++)
+      foreach(int i in stack.ToArray())
       {
         int[] x = new int[] {r.Next(-1, 2), r.Next(0, 3), r.Next(-1, 2)};
         int a = stack.Pop();
@@ -49,9 +44,9 @@ static int getnum(char c)
         RET += b + "" + a;
       }
       return RET;
-    }
-    static string Decompress(string toDecom)
-    {
+}
+static string Decompress(string toDecom)
+{
       if((toDecom.Length % 2) != 0) toDecom += '0';
       string RET = "";
       for(int i = 0; i < toDecom.Length; i+=2)
@@ -65,4 +60,4 @@ static int getnum(char c)
       Array.Reverse(x);
       RET = new string(x);
       return RET;
-    }
+}
