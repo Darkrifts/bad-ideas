@@ -42,6 +42,7 @@ static string Compress(string toCompress)
         int a = stack.Pop();
         char b = stack2.Pop();
         a += (x[0] * x[1] * x[2]);
+        b += (x[0] * x[1] * x[2]);
         RET += b + "" + a;
       }
       return RET;
